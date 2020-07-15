@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathCalc", "MathCalc\MathCalc.csproj", "{8B673D8F-E76C-42A6-8844-FCC3F73F350B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B673D8F-E76C-42A6-8844-FCC3F73F350B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B673D8F-E76C-42A6-8844-FCC3F73F350B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B673D8F-E76C-42A6-8844-FCC3F73F350B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B673D8F-E76C-42A6-8844-FCC3F73F350B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EADB1181-C84E-4E98-976A-DCDC9901606F}
+	EndGlobalSection
+EndGlobal
