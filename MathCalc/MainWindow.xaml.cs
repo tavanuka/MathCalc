@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,20 +28,28 @@ namespace MathCalc
             InitializeComponent();
         }
 
-
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
             bool valid = true;
             var person = new Person();
-            person.Name = FirstNameBox.ToString();
-            person.LastName = LastNameBox.ToString();
-            FirstNameReadOnlyBox.Text = FirstNameBox.Text;
-            LastNameReadOnlyBox.Text = LastNameBox.Text;
+            var func = new Function();
 
             if (Calendar.SelectedDate != null)
             {
-                person.DateOfBirth = (DateTime)Calendar.SelectedDate;
-                CalendarReadOnlyBox.Text = person.DateOfBirth.ToString();
+                var user = new List<Person>()
+                {
+                    new Person()
+                    {
+                        Name = FirstNameBox.Text,
+                        LastName = LastNameBox.Text,
+                        DateOfBirth = (DateTime)Calendar.SelectedDate
+                    }
+                };
+                person.Data.AddRange(user);
+
+                CalendarReadOnlyBox.Text = Calendar.SelectedDate.ToString();
+                FirstNameReadOnlyBox.Text = FirstNameBox.Text;
+                LastNameReadOnlyBox.Text = LastNameBox.Text;
             }
             else
             {
@@ -49,7 +58,15 @@ namespace MathCalc
             }
 
             if ((bool)CheckBox_CSV_Write.IsChecked && valid)
-                MessageBox.Show("Im gay");
+            {
+                SaveFileDialog saveD = new SaveFileDialog();
+                saveD.Filter = "CSV files (*.csv)|*.csv";
+                saveD.Title = "Save a CSV file";
+                if ((bool)saveD.ShowDialog())
+                {
+                    func.CSV_File_Writer(saveD.FileName, person.Data);
+                }
+            }
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
